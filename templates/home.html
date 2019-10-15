@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+	<h2 class="text-primary text-center">Welcome  To POC, Fill the Details...!</h2><br>
+	<div class="container">
+		<form action="{{ url_for('home') }}" method="post" class="col-sm-6 col-sm-offset-3 panel panel-body panel-default">
+			<div data-toggle="modal" data-target="#myModal">
+				<a href="#" 
+				   style="margin-left: 5px;" 
+				   class="pull-right btn btn-danger btn-xs"
+				   data-toggle="tooltip" data-placement="right" title="Drop All Individual DB">
+					<i class="fas fa-trash	"> </i> 
+				</a>				
+			</div>
+			<a href="{{ url_for('getAllAPI') }}" 
+			   class="pull-right btn btn-info btn-xs"
+			   data-toggle="tooltip" data-placement="top" title="Domains API Link">
+				<i class="fas fa-file-alt	"></i> 
+			</a> 
+			<a href="{{ url_for('IndividualAPI') }}" 
+			   style="margin-right: 5px;" 
+			   class="pull-right btn btn-info btn-xs"
+			   data-toggle="tooltip" data-placement="left" title="Individual Domains API Link">
+				<i class="far fa-file-alt"> </i> 
+			</a>
+			
+			<br>
+		  <div class="form-group">
+		    <label for="firstName">First Name:</label>
+		    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required="required">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="lastName">Last Name:</label>
+		    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required="required">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="email">Email:</label>
+		    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required="required">
+		  </div>
+
+		  <div class="form-group">
+		    <label for="empId">Employee Id:</label>
+		    <input type="text" class="form-control" id="empId" name="empId" placeholder="Employee Id" required="required">
+		  </div> 
+
+		  <button type="submit" class="btn btn-primary pull-right">Register ></button>
+		</form>
+	</div>
+	<div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog modal-sm">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Drop All Database ?</h4>
+	        </div>
+	        <div class="modal-body col-sm-offset-3">
+	          <a href="{{ url_for('dropDb') }}" class="btn btn-danger btn-sm">Yes</a>
+	          <a href="#" class="btn btn-default btn-sm" data-dismiss="modal">No</a>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+</div>
+
+<script>
+	$(document).ready(function(){ $('[data-toggle="tooltip"]').tooltip();});
+</script>
+<!-- <script type="text/javascript">
+	let d = new Date();
+	let ds = d.toString()
+	document.getElementById("createdOn").value = ds;
+	console.log(ds)
+</script> -->
+{% endblock %}

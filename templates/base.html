@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>POC Project</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="/static/scripts/jquery-3.3.1.min.js"></script>
+  <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div class="col-sm-12 pull-right fadeIn" style="">
+		<div class="col-sm-8">
+			{% with messages= get_flashed_messages(with_categories=true) %}
+				{% if messages %}
+					{% for category,message in messages %}
+						<div class="alert alert-{{category}} alert-dismissible">
+						  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						  <strong>{{ message }}</strong>
+						</div>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}			
+		</div>
+	</div>
+	<br>
+
+	<div id="content">
+		{% block content %}
+
+		{% endblock %}		
+	</div>
+	
+	<script type="text/javascript"></script>
+</body>
+</html>

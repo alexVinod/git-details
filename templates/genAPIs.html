@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GenAPIS</title>
+</head>
+<body>
+	<div id="data">
+		{{ domainsDetails }}
+		{% for domain in domainsDetails.DomainsDetails %}
+			<p>{{ domain.domainName }} - {{ domain.createdBy }} - {{ domain.createdOn }}</p>			
+		{% endfor %}
+	</div>
+</body>
+</html>
